@@ -9,7 +9,7 @@ class EchoBot extends ActivityHandler {
         super();
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
-            // const replyText = `Echo: ${ context.activity.text }`;
+            const replyText = `Echo: ${ context.activity.text }`;
             const response = await openAIPrompt(context.activity.text);
             await context.sendActivity(MessageFactory.text(response, response));
             // By calling next() you ensure that the next BotHandler is run.
